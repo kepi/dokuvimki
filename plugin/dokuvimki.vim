@@ -195,7 +195,6 @@ class DokuVimKi:
 
         try:
             self.xmlrpc = dokuwikixmlrpc.DokuWikiClient(self.dw_url, self.dw_user, self.dw_pass)
-            print >>sys.stdout, 'Connection to ' + vim.eval('g:DokuVimKi_URL') + ' established!'
             return True
         except dokuwikixmlrpc.DokuWikiXMLRPCError, err:
             print >>sys.stderr, err
@@ -795,7 +794,6 @@ class DokuVimKi:
         self.media = []
 
         try:
-            print >>sys.stdout, "Refreshing page index!"
             data = self.xmlrpc.all_pages()
 
             if data:
